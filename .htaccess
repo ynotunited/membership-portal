@@ -1,0 +1,52 @@
+# =============================================================================
+# Root .htaccess – Secure deployment configuration
+# =============================================================================
+
+RewriteEngine On
+
+# ── 1. HTTPS enforcement ──────────────────────────────────────────────────────
+# Force all traffic to HTTPS. Remove or comment this block in local dev.
+# Uncomment on production:
+# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP_HOST} !^localhost [NC]
+# RewriteCond %{HTTP_HOST} !^127\.0\.0\.1
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ── 2. Block direct access to all sensitive directories and files ─────────────
+# These must never be reachable by a browser.
+
+# Deny access to .env
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Deny access to composer files
+<Files "composer.json">
+    Order allow,deny
+    Deny from all
+</Files>
+<Files "composer.lock">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Deny access to any .log files at root level
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Block entire sensitive directories
+RedirectMatch 403 ^/vendor(/|$)
+RedirectMatch 403 ^/app(/|$)
+RedirectMatch 403 ^/config(/|$)
+RedirectMatch 403 ^/database(/|$)
+RedirectMatch 403 ^/logs(/|$)
+RedirectMatch 403 ^/\.git(/|$)
+RedirectMatch 403 ^/\.agents(/|$)
+
+# ── 3. Route all non-file/dir requests into public/ ──────────────────────────
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]

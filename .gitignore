@@ -1,0 +1,43 @@
+# =============================================================================
+# GAFCONL – .gitignore
+# Never commit secrets, credentials, logs, or build artefacts.
+# =============================================================================
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example          # Keep the example template, never the real values
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+/vendor/
+
+# ── Logs (may contain credentials, IPs, session data) ─────────────────────────
+/logs/
+*.log
+
+# ── Uploads (user-submitted files – not part of source control) ───────────────
+/public/uploads/
+!/public/uploads/.gitkeep
+
+# ── PHP / IDE artefacts ───────────────────────────────────────────────────────
+.phpunit.result.cache
+.phpunit.cache/
+/coverage/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Tool configs ──────────────────────────────────────────────────────────────
+.agents/
+.gemini/
+
+# ── Database dumps (may contain PII and credentials) ─────────────────────────
+*.sql
+*.sql.gz
+*.dump
+
+# ── Backup files ──────────────────────────────────────────────────────────────
+*.bak
+*.tmp
+/backups/
