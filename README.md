@@ -288,14 +288,32 @@ The platform includes several security measures:
 
 # 📸 Screenshots
 
-_Add screenshots of the following areas:_
+## Login Portal
+
+![Login](screenshots/login.png)
 
 
-### Member Dashboard
+## Member Dashboard
 
-- Profile information
-- Contributions
-- Account activities
+![Member Dashboard](screenshots/member-dashboard.png)
+
+
+## Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+
+## Payment Management
+
+![Payments](screenshots/payments.png)
+
+
+## Community Features
+
+![Community](screenshots/community.png)
+
+
+
 
 
 ### Admin Dashboard
