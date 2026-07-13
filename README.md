@@ -1,6 +1,6 @@
 # GAFCONL Platform
 
-![GAFCONL Platform Banner](https://via.placeholder.com/1200x400?text=GAFCONL+Platform)
+![GAFCONL Platform](assets/banner.png)
 
 A production-ready cooperative management platform built for **Global Apex Farmers Cooperative Nigeria Limited (GAFCONL)** to digitize member operations, financial workflows, community engagement, and administrative processes.
 
